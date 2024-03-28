@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "XFaecMeRuvbN+RU8TqwsctiU/KAsX/RShAxdUtpxrPk=",
+  "Source": "net8-webapi-jwt-token",
+  "BasePath": "_content/net8-webapi-jwt-token",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
