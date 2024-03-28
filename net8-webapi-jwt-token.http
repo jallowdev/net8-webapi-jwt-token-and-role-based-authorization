@@ -1,0 +1,6 @@
+@net8_webapi_jwt_token_HostAddress = http://localhost:5015
+
+GET {{net8_webapi_jwt_token_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
