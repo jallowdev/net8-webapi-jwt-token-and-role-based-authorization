@@ -5,14 +5,14 @@ namespace net8_webapi_jwt_token.models.dtos;
 
 public class UserRegistrationRequest
 {
-    [Required]
+    //[Required]
     public string? Email { get; set; }
     
-    [Required]
+    //[Required]
     public string? Username { get; set; }
     
-    [Required]
+    //[Required]
     public string? Password { get; set; }
     
-    public Role? Role { get; set; }
+    public string? Role { get; set; }
 }
