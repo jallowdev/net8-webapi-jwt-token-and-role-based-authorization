@@ -29,7 +29,7 @@ public class UserController : Controller
     [HttpGet]
     public IActionResult GetUsers()
     {
-        return Ok(_userService.GetUsers());
+        return Ok(ConverterUtils.ConvertUsersToUserResponses(_userService.GetUsers()));
     }
 
     [HttpPost("register")]
@@ -37,16 +37,7 @@ public class UserController : Controller
     {
         if (!ModelState.IsValid)
             BadRequest("Filds validation error");
-        return Ok(ConverterUtils.ConvertUsersToUserResponses(_userService.AddUser(user)));
+        return Ok(ConverterUtils.ConvertUserToUserResponse( _userService.AddUser(user)));
     }
-
-    [Route("users")]
-    [HttpPost]
-    public IActionResult AddUsers([FromForm] UserRegistrationRequest request)
-    {
-        if (!ModelState.IsValid)
-            BadRequest("Filds validation error");
-        _userService.AddUser(request);
-        return Ok();
-    }
+    
 }

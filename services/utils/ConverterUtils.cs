@@ -1,5 +1,6 @@
 ﻿using net8_webapi_jwt_token.models.dtos.response;
 using net8_webapi_jwt_token.models.entities;
+using net8_webapi_jwt_token.models.enums;
 
 public class ConverterUtils
 {
@@ -8,7 +9,7 @@ public class ConverterUtils
         return new UserResponse()
         {   Id=user.Id.ToString(),
             Username = user.UserName,
-            Role = user.Role.Value.ToString(),
+            Role = user.Role.ToString() ,
             Email = user.Email,
         };
     }
