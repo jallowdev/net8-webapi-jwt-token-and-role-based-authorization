@@ -8,6 +8,7 @@ public interface IUserService
 {
     public List<User> GetUsers();
     public User AddUser(UserRegistrationRequest request);
+    public User Authenticate(string username, string password);
 }
 
 public class UserService:IUserService
@@ -44,7 +45,13 @@ public class UserService:IUserService
 
     public User FindByUserName(string userName)
     {
-        //var user = await _users.FirstOrDefaultAsync(u => u.Username == loginModel.Username);
         return _users.SingleOrDefault(x => x.UserName == userName);
+    }
+    public User Authenticate(string username, string password)
+    {
+        var user = _users.SingleOrDefault(x => x.UserName == username);
+        if (user is null ||  !BCrypt.Net.BCrypt.Verify(password, user.Password))
+            throw new Exception("User is not Authorize ");
+        return user;
     }
 }

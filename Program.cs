@@ -1,3 +1,5 @@
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using net8_webapi_jwt_token.models.enums;
 using net8_webapi_jwt_token.services;
 
@@ -8,9 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options => ServiceDi.SwaggerSetup(options));
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options => ServiceDi.JwtBearerOptionsSetup(options,builder.Configuration["JWT:SecretKey"]!));
+builder.Services.AddAuthorization();
+
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -19,7 +28,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 app.UseAuthorization();
+app.UseAuthentication();
 
 app.MapControllers();
 
