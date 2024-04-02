@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("net8-webapi-jwt-token")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a86ea986f75c56470505284f0c902280bb41e62")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff76d331550baff653cdc0fb452d6ef3db82e8c6")]
 [assembly: System.Reflection.AssemblyProductAttribute("net8-webapi-jwt-token")]
 [assembly: System.Reflection.AssemblyTitleAttribute("net8-webapi-jwt-token")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
